@@ -102,7 +102,7 @@ a:focus-visible {
     align-items: stretch;
     background:
         linear-gradient(90deg, rgba(7, 31, 66, 0.94) 0%, rgba(13, 59, 124, 0.82) 31%, rgba(13, 59, 124, 0.28) 56%, rgba(13, 59, 124, 0.02) 100%),
-        url("images/province-site-enhanced.jpeg") center / cover no-repeat;
+        url("province-site-enhanced.jpeg") center / cover no-repeat;
     color: white;
     min-height: 520px;
     overflow: hidden;
