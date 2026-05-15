@@ -1,0 +1,584 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-900: #0b2f63;
+    --blue-800: #0f3c7d;
+    --blue-700: #0054a6;
+    --blue-600: #1d5bbf;
+    --blue-100: #e7efff;
+    --blue-50: #f7f9ff;
+    --text: #1b2330;
+    --muted: #59677c;
+    --card: #ffffff;
+    --border: #dbe7fb;
+    --shadow: 0 16px 34px rgba(15, 60, 125, 0.1);
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #eef3f9;
+    color: var(--text);
+}
+
+a {
+    color: var(--blue-700);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    text-decoration: underline;
+}
+
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.8rem;
+    background: var(--card);
+    color: var(--text);
+    box-shadow: 0 8px 20px rgba(15, 60, 125, 0.08);
+}
+
+.topbar-logo {
+    width: 52px;
+    height: auto;
+    margin-right: 0.75rem;
+}
+
+.site-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    flex-grow: 1;
+    min-width: 220px;
+    margin-right: 1.5rem;
+}
+
+.site-title strong {
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--text);
+}
+
+.site-title span {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.topbar a {
+    color: var(--text);
+    font-weight: 650;
+    padding: 0.45rem 0.2rem;
+}
+
+.topbar a:hover,
+.topbar a:focus-visible,
+.topbar a[aria-current="page"] {
+    color: var(--blue-800);
+}
+
+.container {
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    background:
+        linear-gradient(90deg, rgba(7, 31, 66, 0.94) 0%, rgba(13, 59, 124, 0.82) 31%, rgba(13, 59, 124, 0.28) 56%, rgba(13, 59, 124, 0.02) 100%),
+        url("images/province-site-enhanced.jpeg") center / cover no-repeat;
+    color: white;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 72%, rgba(238, 243, 249, 0.88) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(640px, 54vw);
+    padding: clamp(3rem, 6vw, 5.5rem) clamp(1.4rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-subtitle {
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 0.8rem;
+    color: #f4f8ff;
+    font-size: clamp(1.9rem, 4.6vw, 4rem);
+    line-height: 1.06;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+    margin: 0 0 0.9rem;
+    line-height: 1.38;
+    font-weight: 700;
+}
+
+.hero p {
+    max-width: 570px;
+    margin-bottom: 1.5rem;
+    line-height: 1.65;
+    font-size: 1rem;
+}
+
+.btn,
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background-color: #f4efe3;
+    color: var(--blue-900);
+    padding: 0.85rem 1.45rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.service-link:hover,
+.service-link:focus-visible {
+    background-color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.hero .btn,
+.services-overview .service-link {
+    background-color: var(--blue-800);
+    color: #ffffff;
+}
+
+.hero .btn:hover,
+.hero .btn:focus-visible,
+.services-overview .service-link:hover,
+.services-overview .service-link:focus-visible {
+    background-color: var(--blue-900);
+    color: #ffffff;
+}
+
+.document-site-link {
+    background-color: var(--blue-800);
+    color: #ffffff;
+}
+
+.document-site-link:hover,
+.document-site-link:focus-visible {
+    background-color: var(--blue-900);
+    color: #ffffff;
+}
+
+.page-header,
+.quick-info,
+.important-note,
+.procedure-steps,
+.info-card,
+.procedure-card,
+.document-card,
+.contact-card,
+.guide-panel,
+.note-card,
+.link-card {
+    background: var(--card);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(219, 231, 251, 0.75);
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1,
+.quick-info h2,
+.important-note h2,
+.procedure-steps h2,
+.info-card h2,
+.procedure-card h2,
+.document-card h2,
+.contact-card h2,
+.guide-panel h2,
+.note-card h3 {
+    margin-top: 0;
+    color: var(--blue-800);
+}
+
+.page-header p,
+.quick-info p,
+.important-note p,
+.procedure-steps li,
+.info-card p,
+.procedure-card p,
+.document-card p,
+.contact-card p,
+.guide-panel p,
+.link-card p {
+    line-height: 1.75;
+}
+
+.services-overview {
+    margin-top: -6.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.services-top {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.services-top h2 {
+    margin: 0 0 0.75rem;
+    color: var(--blue-800);
+}
+
+.services-top p {
+    margin: 0 auto;
+    max-width: 640px;
+    color: #4a5b7a;
+}
+
+.services-grid,
+.info-grid,
+.procedure-grid,
+.document-grid,
+.contact-grid,
+.guide-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.service-card {
+    position: relative;
+    background: var(--card);
+    border-radius: 8px;
+    padding: 2rem 1.6rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(219, 231, 251, 0.9);
+    min-height: 245px;
+}
+
+.service-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 1.2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--blue-100);
+    color: var(--blue-800);
+    border: 1px solid var(--border);
+    font-size: 1.45rem;
+}
+
+.service-icon svg {
+    width: 1.65rem;
+    height: 1.65rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+
+.service-card h3 {
+    margin: 0 0 0.75rem;
+    color: var(--blue-900);
+    font-size: 1.35rem;
+}
+
+.service-card p {
+    color: #475569;
+    line-height: 1.75;
+    margin: 0 0 1.35rem;
+}
+
+.info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.procedure-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.document-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-bottom: 1.5rem;
+}
+
+.procedure-card ul,
+.guide-panel ul,
+.document-card ul {
+    padding-left: 1.2rem;
+    margin: 1rem 0 0;
+}
+
+.duration {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: var(--blue-700);
+}
+
+.contact-grid {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.detail-icon {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    background-color: var(--blue-800);
+    color: white;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+.contact-map iframe {
+    width: 100%;
+    min-height: 300px;
+    border: 0;
+    border-radius: 1rem;
+}
+
+.guide-grid {
+    grid-template-columns: 1.2fr 0.9fr;
+}
+
+.note-card {
+    background-color: var(--blue-50);
+    border: 1px solid var(--border);
+}
+
+.link-card {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.link-card a {
+    display: inline-block;
+    color: var(--blue-800);
+    font-weight: 700;
+}
+
+.accordion {
+    display: grid;
+    gap: 1rem;
+}
+
+.accordion-item {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(219, 231, 251, 0.75);
+}
+
+.accordion-header {
+    width: 100%;
+    border: none;
+    background: var(--blue-800);
+    color: white;
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.accordion-header:hover,
+.accordion-header:focus-visible {
+    background: var(--blue-900);
+}
+
+.accordion-body {
+    display: none;
+    padding: 1.5rem;
+    line-height: 1.75;
+    border-top: 1px solid var(--blue-100);
+}
+
+.accordion-item.open .accordion-body {
+    display: block;
+}
+
+.quick-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-info li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--blue-100);
+}
+
+.quick-info li:last-child {
+    border-bottom: none;
+}
+
+.important-note {
+    background: var(--blue-50);
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+}
+
+.procedure-steps {
+    margin-bottom: 2rem;
+}
+
+.procedure-steps ol {
+    padding-left: 1.5rem;
+}
+
+.procedure-steps li {
+    margin-bottom: 1rem;
+}
+
+.procedure-steps em {
+    display: block;
+    margin-top: 1rem;
+    color: var(--blue-700);
+}
+
+footer {
+    text-align: center;
+    padding: 1.25rem;
+    background: var(--blue-800);
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 460px;
+        background:
+            linear-gradient(90deg, rgba(7, 31, 66, 0.94) 0%, rgba(13, 59, 124, 0.78) 52%, rgba(13, 59, 124, 0.18) 100%),
+            url("images/province-site-enhanced.jpeg") center / cover no-repeat;
+    }
+
+    .hero-content {
+        width: min(560px, 78vw);
+    }
+
+    .contact-grid,
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .topbar {
+        align-items: flex-start;
+        gap: 0.65rem;
+        padding: 0.9rem 1rem;
+    }
+
+    .topbar-logo {
+        width: 38px;
+    }
+
+    .site-title {
+        min-width: 0;
+        margin-right: 0;
+    }
+
+    .topbar nav {
+        width: 100%;
+        gap: 0.55rem 0.85rem;
+    }
+
+    .container {
+        padding: 1rem 0;
+    }
+
+    .hero {
+        min-height: 430px;
+        background:
+            linear-gradient(90deg, rgba(7, 31, 66, 0.96) 0%, rgba(13, 59, 124, 0.84) 68%, rgba(13, 59, 124, 0.32) 100%),
+            url("images/province-site-enhanced.jpeg") center / cover no-repeat;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 2.6rem 1.2rem 5.2rem;
+    }
+
+    .services-overview {
+        margin-top: -4.8rem;
+    }
+
+    .page-header,
+    .quick-info,
+    .important-note,
+    .procedure-steps,
+    .info-card,
+    .procedure-card,
+    .document-card,
+    .contact-card,
+    .guide-panel,
+    .note-card,
+    .link-card,
+    .service-card {
+        padding: 1.35rem;
+    }
+}
